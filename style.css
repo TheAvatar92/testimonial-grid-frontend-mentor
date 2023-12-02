@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #ecf2f8;
+    font-family: 'Barlow Semi Condensed', sans-serif; /* had to ust copy and paste this css rule
+    from google fonts, after i put the html link in after thr style sheet in the header */
+    
+}
+
+#testimonial-grid-container {
+    padding: 5% 2% ;   /*   1st % is top and bototm pad, 2nd is L and R , this creates padding
+    around the containers from the background*/
+}
+
+#testimonial-1 {
+    background-color: #7541c8;
+    color: #ffffff;
+    position: relative; /* this is to help positin the quote image */
+    z-index: 0;
+     
+}
+
+#testimonial-2 {
+    background-color: #48556a;
+    color: #ffffff;
+
+}
+
+#testimonial-3 {
+    background-color: #ffffff;
+    color: #48556a;
+}
+
+#testimonial-4 {
+    background-color: #19212e;
+    color: #ffffff;
+}
+
+#testimonial-5 {
+    background-color: #ffffff;
+    color: #48556a;
+    
+}
+.grid-item{
+    margin-bottom: 20px ;  /* we selected the class of all the containers to put a margin
+    on the bottom of each div container, this would not work if we tried to do this on the estimonial grid container!
+    we need to select each container within instead */
+    padding: 20px; /* padding each item like this creates padding around the content within the container, to the containers edges */
+    border-radius: 5px; /* rounds the edges of all the grid items */
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+    font-size: 13px;
+}
+
+.header .name { /* the 2 class selectors overrides the 70% opacity on the rest of the p tags */
+    opacity: 100%;
+    font-size: 1rem;
+    }
+
+.grid-item h3 {
+    margin-bottom: 20px;
+    font-size: 1.2rem; /* the root element is the font size in the grid item */
+    font-weight: 600;
+}
+.grid-item p  {
+    opacity: 70%; /* this sets p tags to 70% opacity in all containers */
+}
+
+.header{
+    display: flex;
+    align-items: center; /* this aligns on the cross axis to get the text centered to the picture */
+    margin-bottom: 20px; /* this creates space between top container of pic and title to text under it */
+    z-index: 2;
+    position: relative; /* this is also important for the img to move behind the text */
+
+}
+
+.header img {
+    border-radius: 50%; /* trick to make images circular */
+    margin-right: 10px;
+    border: 1px solid purple;
+}
+
+#quote {
+    position: absolute;
+    right: 15%;
+    top: 0; 
+    z-index: 1; /* the card itself is set to 0
+    so this will be above the background, but we will
+    set the header text to 2 so it stays above this image*/
+}
+
+
+/* remeber to put all media queries at the bottom */
+@media (min-width: 576px) { /*we select min width beacuse we're doing mobile first
+    therefore anything in here will be applied when we exceed 576px */
+
+    /* now we nee to style the desktop version on this media section,
+    we did the mobile version in html first */
+    #testimonial-grid-container { /*this will put testmon5 beside main left( 2 children of the whole grid) */
+        display: flex;
+        max-width: 1440px; /* this replicates the fact the testmons shouldnt reach the edge of the page*/
+        margin:0 auto; /* little trick tot centre everything, 0 margin top to bottom, but auto for L and R */
+        justify-content: space-between; /*  we set main left and testmon5 so they dont fill 100% of the width, so this
+        allows us to create space between to mach the design */
+    }
+
+    #testimonial-5 {
+        flex-basis: 20%; /* testmon5 will now occupy 30% width of container */
+    }
+
+    #main-left {
+        display: flex; /* ned to make whole left container flex as well */
+        flex-direction: column; /* this stacks them back on top of eachother */
+        flex-basis: 78%; /* 73 to allow space when we justify space between */
+    }
+    #top {
+        display: flex;  /* this targets top left side of the left main, so the testmon1 and 2 sit 
+        beside each other */
+        flex-basis: 50%; /* note this now is vertical axis as its set to column in main left */
+        justify-content: space-between;
+    }
+    #bottom{
+        display: flex; /* this does the same as above for the bottom container */
+        flex-basis: 50%;
+        justify-content: space-between;
+    }
+
+    #testimonial-1{
+        flex-basis: 62%; /* these flex basis are setting the width of each testmon within their containers
+        we set this to less than 65 to allow space between when we justify content 
+        note we could this just by adding a margin of like 20px to each container in the main left*/
+
+    }
+
+    #testimonial-2{
+        flex-basis: 35%;
+        
+    }
+    #testimonial-3{
+        flex-basis: 35%;
+    }
+    #testimonial-4{
+        flex-basis: 62%;
+        
+    }
+    
+
+}
